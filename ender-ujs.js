@@ -151,7 +151,7 @@
       if (target) { form.attr('target', target); }
 
       form.hide().append(metadata_input).appendTo('body');
-      form.submit();
+      form[0].submit();
     },
 
     /* Disables form elements:
@@ -280,6 +280,7 @@ return false. The `confirm:complete` event is fired whether or not the user answ
     });
 
     $(document).delegate(rails.linkClickSelector, 'click.rails', function(e) {
+      e.preventDefault();
       var link = $(this), method = link.data('method'), data = link.data('params');
       if (!rails.allowAction(link)) return rails.stopEverything(e);
 
