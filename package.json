@@ -1,0 +1,17 @@
+{
+  "name": "ender-ujs",
+  "description": "Unobstrusive Javascript for Ruby on Rails asset pipeline.",
+  "version": "1.0.0",
+  "authors": ["mose <@mo5e>"],
+  "homepage": "https://github.com/mose/ender-ujs.git",
+  "main": "./ender-ujs.js",
+  "ender": "./ender.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mose/ender-ujs.git"
+  },
+  "dependencies": {
+    "jeesh": "*",
+    "reqwest": "*"
+  }
+}
