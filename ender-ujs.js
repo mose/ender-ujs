@@ -280,13 +280,13 @@ return false. The `confirm:complete` event is fired whether or not the user answ
     });
 
     $(document).delegate(rails.linkClickSelector, 'click.rails', function(e) {
-      e.preventDefault();
       var link = $(this), method = link.data('method'), data = link.data('params');
       if (!rails.allowAction(link)) return rails.stopEverything(e);
 
       if (link.is(rails.linkDisableSelector)) rails.disableElement(link);
 
       if (link.data('remote') !== undefined) {
+        e.preventDefault();
         if ( (e.metaKey || e.ctrlKey) && (!method || method === 'GET') && !data ) { return true; }
 
         var handleRemote = rails.handleRemote(link);
@@ -299,6 +299,7 @@ return false. The `confirm:complete` event is fired whether or not the user answ
         return false;
 
       } else if (link.data('method')) {
+        e.preventDefault();
         rails.handleMethod(link);
         return false;
       }
