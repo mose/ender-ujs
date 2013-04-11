@@ -286,8 +286,8 @@ return false. The `confirm:complete` event is fired whether or not the user answ
       if (link.is(rails.linkDisableSelector)) rails.disableElement(link);
 
       if (link.data('remote') !== undefined) {
-        e.preventDefault();
         if ( (e.metaKey || e.ctrlKey) && (!method || method === 'GET') && !data ) { return true; }
+        e.preventDefault();
 
         var handleRemote = rails.handleRemote(link);
         // response from rails.handleRemote() will either be false or a deferred object promise.
