@@ -280,7 +280,6 @@ return false. The `confirm:complete` event is fired whether or not the user answ
     });
 
     $(document).delegate(rails.linkClickSelector, 'click.rails', function(e) {
-      e.preventDefault();
       var link = $(this), method = link.data('method'), data = link.data('params');
       if (!rails.allowAction(link)) return rails.stopEverything(e);
 
@@ -288,6 +287,7 @@ return false. The `confirm:complete` event is fired whether or not the user answ
 
       if (link.data('remote') !== undefined) {
         if ( (e.metaKey || e.ctrlKey) && (!method || method === 'GET') && !data ) { return true; }
+        e.preventDefault();
 
         var handleRemote = rails.handleRemote(link);
         // response from rails.handleRemote() will either be false or a deferred object promise.
@@ -299,6 +299,7 @@ return false. The `confirm:complete` event is fired whether or not the user answ
         return false;
 
       } else if (link.data('method')) {
+        e.preventDefault();
         rails.handleMethod(link);
         return false;
       }
